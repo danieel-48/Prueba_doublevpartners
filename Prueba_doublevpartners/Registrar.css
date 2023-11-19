@@ -1,0 +1,83 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f2f2f2;
+}
+
+.login-page {
+    width: 1000px;
+    padding: 8% 0 0;
+    margin: auto;
+}
+
+.form {
+    position: relative;
+    z-index: 1;
+    background: #ffffff;
+    max-width: 1000px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+    .form input[type="text"],
+    .form input[type="password"] {
+        width: calc(100% - 40px);
+        padding: 10px;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid #aaaaaa;
+        outline: none;
+        font-size: 16px;
+    }
+
+.btn-style {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 20px;
+    background: #007bff;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+    .btn-style:hover {
+        background: #0056b3;
+    }
+
+.styled-select {
+    width: 250px; 
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid #aaaaaa;
+}
+
+    .styled-select select {
+        appearance: none; 
+        width: calc(100% - 20px);
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        outline: none;
+    }
+
+    .styled-select::after {
+        content: '\25BC';
+        position: absolute;
+        top: calc(50% - 5px); 
+        right: 5px;
+        pointer-events: none; 
+    }

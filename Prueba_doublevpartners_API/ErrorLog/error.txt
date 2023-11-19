@@ -1,0 +1,23 @@
+Error generado el 2023-11-18 02:29:31:
+Error DAL: Schema specified is not valid. Errors: 
+EntityDataModel.PERSONASModel.ssdl(2,2) : error 0152: No Entity Framework provider found for the ADO.NET provider with invariant name 'System.Data.SqlClient'. Make sure the provider is registered in the 'entityFramework' section of the application config file. See http://go.microsoft.com/fwlink/?LinkId=260882 for more information.
+
+Error generado el 2023-11-18 10:26:40:
+Error DAL: Schema specified is not valid. Errors: 
+EntityDataModel.PERSONASModel.ssdl(2,2) : error 0152: No Entity Framework provider found for the ADO.NET provider with invariant name 'System.Data.SqlClient'. Make sure the provider is registered in the 'entityFramework' section of the application config file. See http://go.microsoft.com/fwlink/?LinkId=260882 for more information.
+
+Error generado el 2023-11-18 10:33:50:
+Error DAL: An error occurred while updating the entries. See the inner exception for details.
+
+Error generado el 2023-11-18 16:35:30:
+Error DAL: An error occurred while updating the entries. See the inner exception for details.
+
+Error generado el 2023-11-18 16:47:02:
+Error DAL: An error occurred while updating the entries. See the inner exception for details.
+
+Error generado el 2023-11-18 16:53:23:
+Error DAL: An error occurred while updating the entries. See the inner exception for details.
+
+Error generado el 2023-11-18 16:53:30:
+Error DAL: An error occurred while updating the entries. See the inner exception for details.
+

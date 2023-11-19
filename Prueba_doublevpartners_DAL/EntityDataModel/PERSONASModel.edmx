@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="prueba_doublevpartnersModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Personas">
+          <Key>
+            <PropertyRef Name="Identificador" />
+          </Key>
+          <Property Name="Identificador" Type="bigint" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="Numero_de_identificacion" Type="bigint" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="Tipo_identificacion" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Fecha_de_creación" Type="datetime" />
+          <Property Name="Nombres_Apellidos" Type="varchar" MaxLength="161" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Tipo_NumeroIdentificacion" Type="varchar" MaxLength="55" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Usuario" />
+          </Key>
+          <Property Name="Identificador" Type="bigint" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pass" Type="varchar" MaxLength="50" />
+          <Property Name="Fecha_de_creacion" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__Usuarios__Identi__07C12930">
+          <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personas">
+              <PropertyRef Name="Identificador" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="Identificador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="prueba_doublevpartnersModelStoreContainer">
+          <EntitySet Name="Personas" EntityType="Self.Personas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Usuarios__Identi__07C12930" Association="Self.FK__Usuarios__Identi__07C12930">
+            <End Role="Personas" EntitySet="Personas" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="prueba_doublevpartnersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PersonasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Personas" EntityType="prueba_doublevpartnersModel.Personas" />
+          <EntitySet Name="Usuarios" EntityType="prueba_doublevpartnersModel.Usuarios" />
+          <AssociationSet Name="FK__Usuarios__Identi__07C12930" Association="prueba_doublevpartnersModel.FK__Usuarios__Identi__07C12930">
+            <End Role="Personas" EntitySet="Personas" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Personas">
+          <Key>
+            <PropertyRef Name="Identificador" />
+          </Key>
+          <Property Name="Identificador" Type="Int64" Nullable="false" />
+          <Property Name="Nombres" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Numero_de_identificacion" Type="Int64" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo_identificacion" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_de_creación" Type="DateTime" Precision="3" />
+          <Property Name="Nombres_Apellidos" Type="String" Nullable="false" MaxLength="161" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Tipo_NumeroIdentificacion" Type="String" Nullable="false" MaxLength="55" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Usuarios" Relationship="prueba_doublevpartnersModel.FK__Usuarios__Identi__07C12930" FromRole="Personas" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Usuario" />
+          </Key>
+          <Property Name="Identificador" Type="Int64" />
+          <Property Name="Usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_de_creacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Personas" Relationship="prueba_doublevpartnersModel.FK__Usuarios__Identi__07C12930" FromRole="Usuarios" ToRole="Personas" />
+        </EntityType>
+        <Association Name="FK__Usuarios__Identi__07C12930">
+          <End Type="prueba_doublevpartnersModel.Personas" Role="Personas" Multiplicity="0..1" />
+          <End Type="prueba_doublevpartnersModel.Usuarios" Role="Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personas">
+              <PropertyRef Name="Identificador" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="Identificador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="prueba_doublevpartnersModelStoreContainer" CdmEntityContainer="PersonasEntities">
+          <EntitySetMapping Name="Personas">
+            <EntityTypeMapping TypeName="prueba_doublevpartnersModel.Personas">
+              <MappingFragment StoreEntitySet="Personas">
+                <ScalarProperty Name="Tipo_NumeroIdentificacion" ColumnName="Tipo_NumeroIdentificacion" />
+                <ScalarProperty Name="Nombres_Apellidos" ColumnName="Nombres_Apellidos" />
+                <ScalarProperty Name="Fecha_de_creación" ColumnName="Fecha_de_creación" />
+                <ScalarProperty Name="Tipo_identificacion" ColumnName="Tipo_identificacion" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Numero_de_identificacion" ColumnName="Numero_de_identificacion" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Identificador" ColumnName="Identificador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="prueba_doublevpartnersModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="Fecha_de_creacion" ColumnName="Fecha_de_creacion" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Identificador" ColumnName="Identificador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
